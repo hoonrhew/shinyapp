@@ -98,4 +98,3 @@ query <-"use sandbox; truncate table  Sandbox.dbo.Items_line_item_level"
 chan <- odbcConnect(dsn="AMAZON_DWH",uid=uid , pwd=pwd) #chan <- odbcConnect(dsn="T3600-01",uid="hoon" , pwd="RealReal1") #
 par <- 0; a<-"ERROR: "; while( ifelse(length(a)==0,FALSE, max(grepl("ERROR: ", a))==1) & par<5 ){if(par!=1){take_pause(5)}; a <- sqlQuery(chan, query); par <- par+1; print(a); print(par)} ; rm("par", "a")
 odbcClose(chan);take_pause(5)
-
